@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/api-gateway" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/8.1.1/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/api-gateway" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/audit-service" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/8.1.1/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/audit-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/order-service" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/8.1.1/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/order-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/service-registry" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/8.1.1/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/service-registry" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/user-service" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/8.1.1/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/user-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
