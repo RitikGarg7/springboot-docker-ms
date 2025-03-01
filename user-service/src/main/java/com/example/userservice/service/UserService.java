@@ -50,6 +50,7 @@
 
 package com.example.userservice.service;
 
+import com.example.userservice.dto.UserResponse;
 import com.example.userservice.entity.Role;
 import com.example.userservice.entity.User;
 import com.example.userservice.repository.UserRepository;
@@ -99,5 +100,11 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public UserResponse getUserByUsername(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        return new UserResponse(user.getId(), user.getUsername(), user.getEmail());
     }
 }

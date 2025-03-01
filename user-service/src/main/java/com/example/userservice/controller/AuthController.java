@@ -1,5 +1,6 @@
 package com.example.userservice.controller;
 
+import com.example.userservice.dto.UserResponse;
 import com.example.userservice.entity.User;
 import com.example.userservice.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -31,5 +32,10 @@ public class AuthController {
     public List<User> getAllUsers() {
         System.out.println("controller hit");
         return userService.getAllUsers();
+    }
+
+    @GetMapping("/user")
+    public UserResponse getUserByUsername(@RequestParam String username) {
+        return userService.getUserByUsername(username);
     }
 }

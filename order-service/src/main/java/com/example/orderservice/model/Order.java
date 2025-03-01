@@ -17,6 +17,7 @@ public class Order {
     private Double price;
 
     // Store user ID but do NOT use @ManyToOne
-    private Long userId;
+//    private Long userId;
+    private String username;
 }
 

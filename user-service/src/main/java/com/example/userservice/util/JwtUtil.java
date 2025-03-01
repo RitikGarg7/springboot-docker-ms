@@ -2,17 +2,24 @@ package com.example.userservice.util;
 
 import com.example.userservice.entity.User;
 import io.jsonwebtoken.*;
+import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import java.util.Date;
 import javax.crypto.SecretKey;
 
 @Component
 public class JwtUtil {
-    private final SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+//    private final SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    @Value("${jwt.secret}")
+    private String secretKey;
     private final long expiration = 86400000; // 1 day
+
+    private SecretKey getSigningKey() {
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+        return Keys.hmacShaKeyFor(keyBytes);
+    }
 
     public String generateToken(User user) {
         return Jwts.builder()
@@ -20,7 +27,7 @@ public class JwtUtil {
                 .claim("roles", "ROLE_" + user.getRole().name()) // ✅ Store role in the token
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))
-                .signWith(secretKey)
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
@@ -39,6 +46,6 @@ public class JwtUtil {
     }
 
     public Claims getClaims(String token) {
-        return Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token).getBody();
+        return Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token).getBody();
     }
 }
